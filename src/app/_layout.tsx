@@ -1,5 +1,6 @@
 import { SafeAreaView } from "react-native";
 import { Slot } from "expo-router";
+import { Loading } from "@/components/loading"
 import { 
     Inter_400Regular,
     Inter_500Medium,
@@ -17,7 +18,7 @@ export default function Layout() {
     })
 
     if(!fontsLoaded) {
-        return ()
+        return <Loading/>
     }
 
     return (
