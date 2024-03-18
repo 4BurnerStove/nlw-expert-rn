@@ -9,7 +9,7 @@ type ProductProps = TouchableOpacityProps & {
   data: ProductDataProps
 }
 
-export function Produt({ data, ...rest }: ProductProps) {
+export function Product({ data, ...rest }: ProductProps) {
   return (
     <TouchableOpacity className="w-full flex-row items-center pb-4" {...rest}>
     </TouchableOpacity>
