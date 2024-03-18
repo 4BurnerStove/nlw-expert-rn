@@ -15,6 +15,14 @@ export default function Home() {
         setCategory(selectedCategory)
 
         const sectionIndex = CATEGORIES.findIndex((category) => category  ===  selectedCategory)
+
+        if(sectionListRef.current){
+            sectionListRef.current.scrollToLocation({
+                animated: true,
+                sectionIndex,
+                itemIndex: 0,
+            })
+        }
     }
 
     return (
