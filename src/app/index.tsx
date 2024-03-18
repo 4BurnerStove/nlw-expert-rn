@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { View, FlatList, SectionList, Text } from "react-native"
 
 import { CATEGORIES, MENU } from "@/utils/data/products"
@@ -9,8 +9,12 @@ import { Product } from "../components/product"
 export default function Home() {
     const [category, setCategory] = useState(CATEGORIES[0])
 
+    const sectionListRef = useRef<SectionList>(null)
+
     function handleCategorySelect(selectedCategory: string){
         setCategory(selectedCategory)
+
+        const sectionIndex = CATEGORIES.findIndex((category) => category  ===  selectedCategory)
     }
 
     return (
@@ -30,16 +34,21 @@ export default function Home() {
                 showsHorizontalScrollIndicator={false}
             />
             <SectionList
+                ref={sectionListRef}
                 sections={MENU}
                 keyExtractor={(item) => item.id}
                 stickySectionHeadersEnabled={false} // para que nada fique por cima de nada
                 renderItem={({ item }) => (
                     <Product data={item}/>
                 )}
-                renderSectionHeader={({section: {title}}) => 
+                renderSectionHeader={({section: {title}}) => (
                 <Text className="text-xl text-white font-heading mt-8 mb-3">
                     {title}
-                </Text>}
+                </Text>)}
+                className="flex-1 p-5"
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{paddingBottom: 100}}
+                
             />
         </View>
  )
