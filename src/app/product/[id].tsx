@@ -26,7 +26,7 @@ export default function Product(){
         </Text>
         {
           product.ingredients.map((ingredient) => (
-            <Text key={ingredient} className="text-slate-400 text-base leading-6">{"\u2022"}{ingredient}</Text>
+            <Text key={ingredient} className="text-slate-400 text-base leading-6">{"\u2022"} {ingredient}</Text>
           ))}
       </View>
     </View>
