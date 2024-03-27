@@ -1,7 +1,10 @@
 import { View, Image, Text } from "react-native";
 import { useLocalSearchParams } from "expo-router" // recuperar ID dos produtos 
+import { Feather } from "@expo/vector-icons"
+
 import { PRODUCTS } from "@/src/utils/data/products";
 import { formatCurrency } from "@/utils/functions/format-currency"
+import { Button } from "@/src/components/button";
 
 export default function Product(){
   const { id } = useLocalSearchParams() 
@@ -25,6 +28,17 @@ export default function Product(){
           product.ingredients.map((ingredient) => (
             <Text key={ingredient} className="text-slate-400 text-base leading-6">{"\u2022"} {ingredient}</Text>
           ))}
+      </View>
+
+      <View className="p-5 pb-8 gap-5">
+            <Button>
+              <Button.Icon>
+                <Feather name="plus-circle" size={20}/>
+              </Button.Icon>
+              <Button.Text>
+                Adicionar ao pedido
+              </Button.Text>
+            </Button>
       </View>
     </View>
   )
