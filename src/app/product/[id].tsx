@@ -3,13 +3,10 @@ import { useLocalSearchParams } from "expo-router" // recuperar ID dos produtos
 import { PRODUCTS } from "@/src/utils/data/products";
 import { formatCurrency } from "@/utils/functions/format-currency"
 
-
-
 export default function Product(){
   const { id } = useLocalSearchParams() 
 
   const product = PRODUCTS.filter((item) => item.id === id)[0]
-  console.log(product)
 
   return (
     <View className="flex-1">
