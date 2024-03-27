@@ -5,6 +5,7 @@ import { Feather } from "@expo/vector-icons"
 import { PRODUCTS } from "@/src/utils/data/products";
 import { formatCurrency } from "@/utils/functions/format-currency"
 import { Button } from "@/src/components/button";
+import { LinkButton } from "@/src/components/link-button";
 
 export default function Product(){
   const { id } = useLocalSearchParams() 
@@ -39,6 +40,8 @@ export default function Product(){
                 Adicionar ao pedido
               </Button.Text>
             </Button>
+
+            <LinkButton title="Voltar ao cardápio" href="/"></LinkButton>
       </View>
     </View>
   )
